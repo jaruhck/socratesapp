@@ -1,5 +1,5 @@
 /* ==========================
-   RESET
+   CONFIGURACIÓN GENERAL
 ========================== */
 
 *{
@@ -10,9 +10,11 @@
 
 body{
 
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:'Poppins',Arial,sans-serif;
 
-    background:linear-gradient(135deg,#1d3557,#263859,#4d3d28);
+    background:linear-gradient(135deg,#17223b,#263859,#6b4d1f);
+
+    min-height:100vh;
 
     display:flex;
 
@@ -20,9 +22,49 @@ body{
 
     align-items:center;
 
-    min-height:100vh;
+    flex-direction:column;
 
     overflow:hidden;
+
+}
+
+/* ==========================
+      FONDO
+========================== */
+
+#background{
+
+    position:fixed;
+
+    width:100%;
+    height:100%;
+
+    background-image:
+    radial-gradient(circle,#ffffff 1px,transparent 1px);
+
+    background-size:35px 35px;
+
+    opacity:.08;
+
+    animation:mover 25s linear infinite;
+
+    z-index:-1;
+
+}
+
+@keyframes mover{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-300px);
+
+    }
 
 }
 
@@ -32,13 +74,13 @@ body{
 
 .app{
 
-    width:430px;
+    width:420px;
 
-    height:780px;
+    height:760px;
 
-    background:#eef2f8;
+    background:white;
 
-    border-radius:28px;
+    border-radius:25px;
 
     overflow:hidden;
 
@@ -46,21 +88,21 @@ body{
 
     flex-direction:column;
 
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
 
 }
 
 /* ==========================
-     ENCABEZADO
+      HEADER
 ========================== */
 
 header{
 
-    background:#213b63;
+    background:#1d3557;
 
     color:white;
 
-    padding:22px;
+    padding:20px;
 
     display:flex;
 
@@ -78,20 +120,22 @@ header{
 
 header h1{
 
-    font-size:24px;
+    font-family:'Cinzel',serif;
+
+    font-size:25px;
 
 }
 
 header p{
 
-    opacity:.8;
-
     font-size:13px;
+
+    opacity:.8;
 
 }
 
 /* ==========================
-     PROGRESO
+      PROGRESO
 ========================== */
 
 .progress-container{
@@ -104,9 +148,9 @@ header p{
 
 #progress-bar{
 
-    height:100%;
-
     width:0;
+
+    height:100%;
 
     background:#d4af37;
 
@@ -115,7 +159,7 @@ header p{
 }
 
 /* ==========================
-       CHAT
+      CHAT
 ========================== */
 
 #chat{
@@ -124,7 +168,9 @@ header p{
 
     overflow-y:auto;
 
-    padding:18px;
+    padding:22px;
+
+    background:#f5f7fb;
 
 }
 
@@ -132,15 +178,11 @@ header p{
 
     display:flex;
 
-    gap:12px;
+    gap:15px;
 
     align-items:flex-start;
 
 }
-
-/* ==========================
-      AVATAR
-========================== */
 
 .avatar{
 
@@ -150,29 +192,23 @@ header p{
 
     border-radius:50%;
 
-    overflow:hidden;
+    background:#1d3557;
 
-    background:white;
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:42px;
 
     flex-shrink:0;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
 
 }
-
-.avatar img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-/* ==========================
-      MENSAJE
-========================== */
 
 .mensaje{
 
@@ -180,19 +216,19 @@ header p{
 
     background:white;
 
-    padding:18px;
+    border-radius:18px;
 
-    border-radius:20px;
+    padding:20px;
 
     box-shadow:0 5px 15px rgba(0,0,0,.08);
 
-    animation:aparece .35s;
+    animation:aparece .4s;
 
 }
 
 .mensaje h2{
 
-    color:#213b63;
+    color:#1d3557;
 
     margin-bottom:15px;
 
@@ -200,15 +236,17 @@ header p{
 
 .mensaje h3{
 
-    color:#6c4c18;
+    color:#6b4d1f;
 
-    margin-bottom:10px;
+    margin-bottom:15px;
 
 }
 
 .mensaje p{
 
     line-height:1.7;
+
+    color:#444;
 
     margin-bottom:15px;
 
@@ -222,34 +260,21 @@ header p{
 
 }
 
-/* ==========================
-      IMAGEN
-========================== */
+.mensaje li{
 
-.foto{
-
-    width:100%;
-
-    max-height:220px;
-
-    object-fit:contain;
-
-    display:block;
-
-    margin-bottom:18px;
-
-    border-radius:15px;
+    margin:8px 0;
 
 }
+
 /* ==========================
       BOTONES
 ========================== */
 
 #buttons{
 
-    padding:18px;
-
     background:white;
+
+    padding:18px;
 
     display:flex;
 
@@ -263,9 +288,7 @@ header p{
 
     border:none;
 
-    outline:none;
-
-    background:#213b63;
+    background:#1d3557;
 
     color:white;
 
@@ -285,11 +308,11 @@ header p{
 
 .boton:hover{
 
-    transform:translateY(-2px);
-
     background:#d4af37;
 
     color:#222;
+
+    transform:translateY(-2px);
 
 }
 
@@ -305,42 +328,18 @@ header p{
 
 footer{
 
-    margin-top:18px;
+    margin-top:20px;
 
     color:white;
 
-    opacity:.8;
+    opacity:.85;
 
     font-size:14px;
 
 }
 
 /* ==========================
-      SCROLL
-========================== */
-
-#chat::-webkit-scrollbar{
-
-    width:8px;
-
-}
-
-#chat::-webkit-scrollbar-thumb{
-
-    background:#c8c8c8;
-
-    border-radius:20px;
-
-}
-
-#chat::-webkit-scrollbar-track{
-
-    background:transparent;
-
-}
-
-/* ==========================
-     ANIMACIONES
+      ANIMACIONES
 ========================== */
 
 @keyframes aparece{
@@ -363,31 +362,27 @@ footer{
 
 }
 
-@keyframes escribir{
+/* ==========================
+      SCROLL
+========================== */
 
-    from{
+#chat::-webkit-scrollbar{
 
-        opacity:0;
-
-    }
-
-    to{
-
-        opacity:1;
-
-    }
+    width:8px;
 
 }
 
-.mensaje{
+#chat::-webkit-scrollbar-thumb{
 
-    animation:aparece .4s ease;
+    background:#bbb;
+
+    border-radius:20px;
 
 }
 
-.boton{
+#chat::-webkit-scrollbar-track{
 
-    animation:escribir .3s ease;
+    background:transparent;
 
 }
 
@@ -395,7 +390,7 @@ footer{
       RESPONSIVE
 ========================== */
 
-@media (max-width:500px){
+@media(max-width:500px){
 
 .app{
 
@@ -409,7 +404,7 @@ footer{
 
 header h1{
 
-    font-size:20px;
+    font-size:21px;
 
 }
 
@@ -421,21 +416,11 @@ header h1{
 
 .avatar{
 
-    width:55px;
+    width:60px;
 
-    height:55px;
+    height:60px;
 
-}
-
-.mensaje{
-
-    padding:15px;
-
-}
-
-.foto{
-
-    max-height:180px;
+    font-size:36px;
 
 }
 
@@ -444,31 +429,5 @@ footer{
     display:none;
 
 }
-
-}
-
-/* ==========================
-      SOMBRAS
-========================== */
-
-.mensaje:hover{
-
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
-
-}
-
-.avatar:hover{
-
-    transform:scale(1.05);
-
-    transition:.2s;
-
-}
-
-.foto:hover{
-
-    transform:scale(1.02);
-
-    transition:.25s;
 
 }

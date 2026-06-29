@@ -1,53 +1,50 @@
-// ======================================
+// =======================================
 // ¿PENSÁS COMO SÓCRATES?
-// Proyecto Filosofía
 // Basado en "Recuerdos de Sócrates"
 // de Jenofonte
-// ======================================
+// =======================================
 
-// ---------- CONFIGURACIÓN ----------
+const sonido = new Audio("pop.mp3");
 
 const chat = document.getElementById("chat");
 const buttons = document.getElementById("buttons");
 const progressBar = document.getElementById("progress-bar");
 
-// Si no tenés pop.mp3, simplemente comentá esta línea
-const sonido = new Audio("pop.mp3");
-
-// ---------- ESCENAS ----------
+// =======================================
+// ESCENAS
+// =======================================
 
 const escenas = [
 
 {
-titulo:"🏛 Bienvenido",
+
+titulo:"🏛️ Bienvenido",
+
+emoji:"🏛️",
 
 texto:`
 
 <p>
 
-¡Hola!
+¡Bienvenido!
 
-Soy <b>Sócrates</b>.
+En esta experiencia vas a conocer uno de los diálogos más famosos escritos por <b>Jenofonte</b> sobre su maestro <b>Sócrates</b>.
 
-Hoy quiero conversar con vos de la misma forma en la que conversaba con mis discípulos hace más de 2400 años.
+No será una clase tradicional.
 
-No voy a decirte qué pensar.
-
-Voy a hacerte preguntas.
-
-Y juntos descubriremos por qué uno de mis discípulos, <b>Jenofonte</b>, decidió escribir este diálogo.
+Responderás preguntas, reflexionarás y descubrirás cómo enseñaba Sócrates.
 
 </p>
 
 `,
 
-imagen:"img/socrates.png",
-
 botones:[
+
 {
 texto:"Comenzar",
 siguiente:1
 }
+
 ]
 
 },
@@ -56,35 +53,41 @@ siguiente:1
 
 titulo:"👤 ¿Quién fue Sócrates?",
 
+emoji:"👤",
+
 texto:`
 
 <p>
 
-Sócrates fue un filósofo nacido en Atenas.
+Sócrates fue uno de los filósofos más importantes de la Antigua Grecia.
 
-A diferencia de muchos pensadores, nunca escribió libros.
+Vivió en Atenas hace más de 2400 años.
 
-Prefería recorrer las calles conversando con las personas.
+Nunca escribió libros.
 
-Creía que haciendo preguntas era posible descubrir la verdad mucho mejor que simplemente escuchando respuestas.
+Todo lo que sabemos de él fue gracias a sus discípulos, especialmente Platón y Jenofonte.
 
 </p>
 
 <p>
 
-Por esa razón, hoy se lo considera uno de los padres de la filosofía occidental.
+Su forma de enseñar era muy especial.
+
+No daba respuestas.
+
+Hacía preguntas para que cada persona encontrara la respuesta por sí misma.
 
 </p>
 
 `,
 
-imagen:"img/socrates.png",
-
 botones:[
+
 {
 texto:"Continuar",
 siguiente:2
 }
+
 ]
 
 },
@@ -93,33 +96,33 @@ siguiente:2
 
 titulo:"📖 ¿Quién fue Jenofonte?",
 
+emoji:"📖",
+
 texto:`
 
 <p>
 
-Jenofonte fue uno de los discípulos de Sócrates.
-
-Además de filósofo, fue militar e historiador.
+Jenofonte fue militar, historiador y discípulo de Sócrates.
 
 Escribió un libro llamado
 
 <b>Recuerdos de Sócrates</b>
 
-para mostrar cómo enseñaba realmente su maestro.
+donde reunió varios diálogos para mostrar cómo enseñaba su maestro.
 
-Gracias a ese libro hoy conocemos muchos de sus diálogos.
+Gracias a él conocemos esta conversación con Aristodemo.
 
 </p>
 
 `,
 
-imagen:"img/jenofonte.png",
-
 botones:[
+
 {
 texto:"Seguir",
 siguiente:3
 }
+
 ]
 
 },
@@ -128,84 +131,72 @@ siguiente:3
 
 titulo:"🤔 Aristodemo",
 
+emoji:"🤔",
+
 texto:`
 
 <p>
 
-Uno de los personajes del diálogo es
+Aristodemo dudaba de la existencia de los dioses.
 
-<b>Aristodemo</b>.
+En lugar de discutir con él, Sócrates comenzó a hacer preguntas.
 
-Él no creía que existieran los dioses.
+Su objetivo no era obligarlo a creer.
 
-En lugar de discutir o enojarse...
-
-Sócrates comenzó a hacerle preguntas.
-
-Porque pensaba que una persona aprende más cuando llega sola a una conclusión.
+Quería que reflexionara por sí mismo.
 
 </p>
 
 `,
 
-imagen:"img/aristodemo.png",
-
 botones:[
+
 {
 texto:"Continuar",
 siguiente:4
 }
+
 ]
 
 },
 
 {
 
-titulo:"⌚ El ejemplo del reloj",
+titulo:"⌚ El reloj",
+
+emoji:"⌚",
 
 texto:`
 
 <p>
 
-Imaginá que caminás por la calle.
-
-Encontrás un reloj.
+Imaginá que encontrás un reloj en el suelo.
 
 Tiene agujas.
 
-Tiene números.
-
 Tiene engranajes.
 
-Todo funciona perfectamente.
+Todas sus piezas funcionan perfectamente.
 
 </p>
 
 <p>
 
-Entonces Sócrates pregunta:
+¿Qué pensarías?
 
 </p>
 
-<h3>
-
-¿Creerías que apareció por casualidad?
-
-</h3>
-
 `,
-
-imagen:"img/reloj.png",
 
 botones:[
 
 {
-texto:"Sí",
+texto:"Se hizo solo",
 siguiente:5
 },
 
 {
-texto:"No",
+texto:"Alguien lo fabricó",
 siguiente:5
 }
 
@@ -214,39 +205,43 @@ siguiente:5
 },
 
 {
-titulo:"⌚ La respuesta",
+
+titulo:"⌚ La reflexión",
+
+emoji:"⌚",
 
 texto:`
 
 <p>
 
-La mayoría respondería que no.
+La mayoría respondería que alguien fabricó ese reloj.
 
-Pensaría que alguien lo construyó.
+Entonces Sócrates hace otra pregunta.
 
-Entonces Sócrates hace una comparación.
+Si un objeto pequeño parece haber sido diseñado...
 
-Si creemos que un objeto tan pequeño necesita un creador...
-
-¿qué ocurre con algo muchísimo más complejo?
+¿qué pasa con algo muchísimo más complejo?
 
 </p>
 
 `,
 
-imagen:"img/reloj.png",
-
 botones:[
+
 {
 texto:"Descubrir",
 siguiente:6
 }
+
 ]
 
 },
+
 {
 
-titulo:"👁 El ojo humano",
+titulo:"👁️ El ojo humano",
+
+emoji:"👁️",
 
 texto:`
 
@@ -254,19 +249,13 @@ texto:`
 
 Sócrates continúa con otro ejemplo.
 
-Observa el cuerpo humano y se detiene especialmente en el ojo.
+Observa el ojo humano.
 
-</p>
+Tiene párpados que lo protegen.
 
-<p>
+Produce lágrimas para mantenerlo limpio.
 
-El ojo posee párpados que lo protegen.
-
-Tiene pestañas que ayudan a impedir la entrada de polvo.
-
-Produce lágrimas que mantienen limpia su superficie.
-
-Además, todas sus partes trabajan juntas para permitirnos ver.
+Sus partes trabajan juntas para permitirnos ver.
 
 </p>
 
@@ -280,13 +269,11 @@ Entonces pregunta:
 
 Si un reloj parece haber sido diseñado...
 
-¿qué pensarías de un órgano mucho más complejo como el ojo?
+¿qué ocurre con un órgano mucho más complejo como el ojo?
 
 </h3>
 
 `,
-
-imagen:"img/ojo.png",
 
 botones:[
 
@@ -303,35 +290,33 @@ siguiente:7
 
 titulo:"🧠 La inteligencia",
 
+emoji:"🧠",
+
 texto:`
 
 <p>
 
-Sócrates cambia de ejemplo.
-
-Pregunta si alguna vez vimos nuestra propia inteligencia.
+Sócrates hace una nueva pregunta.
 
 </p>
 
 <p>
 
-La respuesta es no.
-
-No podemos verla como vemos una piedra o una mesa.
-
-Sin embargo, sabemos que existe por las decisiones que tomamos, por el aprendizaje y por nuestra capacidad de razonar.
+¿Podés ver tu inteligencia?
 
 </p>
 
 <p>
 
-Con esto intenta mostrar que no todo lo real puede verse directamente.
+No.
+
+Sin embargo, sabés que existe porque razonás, aprendés y tomás decisiones.
+
+Con este ejemplo intenta mostrar que no todo lo que existe puede verse con los ojos.
 
 </p>
 
 `,
-
-imagen:"img/cerebro.png",
 
 botones:[
 
@@ -348,37 +333,35 @@ siguiente:8
 
 titulo:"🌍 El orden del universo",
 
+emoji:"🌍",
+
 texto:`
 
 <p>
 
-Luego Sócrates invita a observar el mundo.
+Sócrates invita a observar la naturaleza.
 
 </p>
 
 <ul>
 
-<li>☀️ El Sol proporciona luz y calor.</li>
+<li>☀️ El Sol da luz y calor.</li>
 
-<li>🌧 La lluvia permite que crezcan las plantas.</li>
+<li>🌧️ La lluvia ayuda a crecer a las plantas.</li>
 
 <li>🌱 La naturaleza sigue ciclos.</li>
 
-<li>🌎 Los seres vivos parecen adaptados a su entorno.</li>
+<li>🧍 El cuerpo humano funciona de manera organizada.</li>
 
 </ul>
 
 <p>
 
-Para Sócrates, todo esto muestra un cierto orden.
-
-Ese orden lo lleva a pensar que existe una inteligencia detrás del universo.
+Para Sócrates, ese orden hacía pensar que podía existir una inteligencia detrás del universo.
 
 </p>
 
 `,
-
-imagen:"img/universo.jpg",
 
 botones:[
 
@@ -395,11 +378,13 @@ siguiente:9
 
 titulo:"💡 ¿Sabías que...?",
 
+emoji:"💡",
+
 texto:`
 
 <p>
 
-Este razonamiento hoy recibe el nombre de
+El razonamiento utilizado por Sócrates en este diálogo es conocido actualmente como
 
 <b>Argumento del Diseño</b>
 
@@ -411,17 +396,13 @@ o
 
 <p>
 
-No todos los filósofos están de acuerdo con él.
+Actualmente sigue siendo un tema de debate entre filósofos y científicos.
 
-Algunos creen que la naturaleza puede explicarse mediante procesos naturales sin necesidad de un diseñador.
-
-Por eso sigue siendo un tema de debate incluso en la actualidad.
+Algunos están de acuerdo con esta idea y otros creen que la naturaleza puede explicarse de otra manera.
 
 </p>
 
 `,
-
-imagen:"img/libro.png",
 
 botones:[
 
@@ -436,7 +417,9 @@ siguiente:10
 
 {
 
-titulo:"📚 ¿Qué buscaba realmente Sócrates?",
+titulo:"🏛️ Reflexión final",
+
+emoji:"🏛️",
 
 texto:`
 
@@ -450,30 +433,24 @@ Lo importante es la forma en que Sócrates enseña.
 
 <p>
 
-En vez de imponer sus ideas, hace preguntas.
+No impone sus ideas.
+
+Hace preguntas.
 
 Escucha.
 
-Invita a pensar.
+Invita a reflexionar.
 
-Eso es precisamente el método socrático.
-
-</p>
-
-<p>
-
-Su intención era que cada persona llegara a sus propias conclusiones mediante la reflexión.
+Ese método sigue siendo uno de los mayores aportes de Sócrates a la filosofía.
 
 </p>
 
 `,
 
-imagen:"img/socrates.png",
-
 botones:[
 
 {
-texto:"Ir al final",
+texto:"Ir al cuestionario",
 siguiente:11
 }
 
@@ -483,40 +460,36 @@ siguiente:11
 
 {
 
-titulo:"🏛 Reflexión final",
+titulo:"📝 Mini cuestionario",
+
+emoji:"📝",
 
 texto:`
 
-<p>
-
-Llegamos al final del diálogo.
-
-¿Notaste algo?
-
-En ningún momento Sócrates obligó a Aristodemo a creer.
-
-Simplemente fue haciendo preguntas.
-
-Ese es el verdadero valor del método socrático.
-
-</p>
+<h2>Pregunta 1</h2>
 
 <p>
 
-La filosofía no consiste únicamente en responder.
-
-También consiste en aprender a preguntar.
+¿Cómo enseñaba Sócrates?
 
 </p>
 
 `,
 
-imagen:"img/socrates.png",
-
 botones:[
 
 {
-texto:"Responder un desafío",
+texto:"A) Dando respuestas",
+siguiente:12
+},
+
+{
+texto:"B) Haciendo preguntas",
+siguiente:13
+},
+
+{
+texto:"C) Escribiendo libros",
 siguiente:12
 }
 
@@ -524,10 +497,178 @@ siguiente:12
 
 },
 
+{
+
+titulo:"❌ Incorrecto",
+
+emoji:"❌",
+
+texto:`
+
+<h2>No era esa respuesta.</h2>
+
+<p>
+
+Sócrates no enseñaba dando respuestas ni escribiendo libros.
+
+Su método consistía en hacer preguntas para que cada persona llegara a sus propias conclusiones.
+
+</p>
+
+`,
+
+botones:[
+
+{
+texto:"Siguiente pregunta",
+siguiente:14
+}
+
+]
+
+},
+
+{
+
+titulo:"✅ ¡Correcto!",
+
+emoji:"✅",
+
+texto:`
+
+<h2>¡Muy bien!</h2>
+
+<p>
+
+Correcto.
+
+Sócrates enseñaba mediante preguntas.
+
+Ese método hoy se conoce como <b>método socrático</b>.
+
+</p>
+
+`,
+
+botones:[
+
+{
+texto:"Siguiente pregunta",
+siguiente:14
+}
+
+]
+
+},
+
+{
+
+titulo:"👁️ Pregunta 2",
+
+emoji:"👁️",
+
+texto:`
+
+<h2>Pregunta 2</h2>
+
+<p>
+
+¿Con qué comparó Sócrates el ojo humano?
+
+</p>
+
+`,
+
+botones:[
+
+{
+texto:"Con un reloj",
+siguiente:15
+},
+
+{
+texto:"Con una montaña",
+siguiente:16
+},
+
+{
+texto:"Con un río",
+siguiente:16
+}
+
+]
+
+},
+
+{
+
+titulo:"🏆 ¡Correcto!",
+
+emoji:"🏆",
+
+texto:`
+
+<h2>¡Excelente!</h2>
+
+<p>
+
+Exactamente.
+
+Sócrates utilizó el ejemplo del reloj para comparar su diseño con la complejidad del ojo humano e invitar a Aristodemo a reflexionar.
+
+</p>
+
+`,
+
+botones:[
+
+{
+texto:"Finalizar",
+siguiente:17
+}
+
+]
+
+},
+
+{
+
+titulo:"📖 Explicación",
+
+emoji:"📖",
+
+texto:`
+
+<h2>Respuesta correcta</h2>
+
+<p>
+
+La respuesta correcta era:
+
+<b>Con un reloj.</b>
+
+Ese ejemplo le servía para desarrollar su razonamiento sobre el orden y el diseño.
+
+</p>
+
+`,
+
+botones:[
+
+{
+texto:"Finalizar",
+siguiente:17
+}
+
+]
+
+},
 
 {
 
 titulo:"🎉 ¡Terminaste!",
+
+emoji:"🎉",
 
 texto:`
 
@@ -535,9 +676,13 @@ texto:`
 
 <p>
 
-Acabás de recorrer uno de los diálogos más conocidos de Jenofonte.
+Acabás de recorrer uno de los diálogos más conocidos de <b>Jenofonte</b> sobre <b>Sócrates</b>.
 
-Esperamos que esta experiencia te haya ayudado a comprender mejor cómo enseñaba Sócrates y por qué sigue siendo uno de los filósofos más importantes de la historia.
+</p>
+
+<p>
+
+Esperamos que esta experiencia haya despertado tu interés por la filosofía.
 
 </p>
 
@@ -545,7 +690,7 @@ Esperamos que esta experiencia te haya ayudado a comprender mejor cómo enseñab
 
 <b>
 
-"La filosofía comienza cuando nos atrevemos a preguntar."
+"La filosofía no consiste en memorizar respuestas, sino en aprender a hacer mejores preguntas."
 
 </b>
 
@@ -553,12 +698,10 @@ Esperamos que esta experiencia te haya ayudado a comprender mejor cómo enseñab
 
 `,
 
-imagen:"img/socrates.png",
-
 botones:[
 
 {
-texto:"🔄 Reiniciar",
+texto:"🔄 Volver a empezar",
 siguiente:0
 }
 
@@ -568,28 +711,25 @@ siguiente:0
 
 ];
 
-// =========================
+// =======================================
 // FUNCIONES
-// =========================
+// =======================================
 
 function mostrarEscena(indice){
 
-const escena = escenas[indice];
+    const escena = escenas[indice];
 
-// Barra de progreso
-progressBar.style.width=((indice+1)/escenas.length*100)+"%";
+    progressBar.style.width=((indice+1)/escenas.length)*100+"%";
 
-// Cambiar título de la pestaña
-document.title=escena.titulo;
+    document.title=escena.titulo;
 
-// Mostrar animación de escritura
-chat.innerHTML=`
+    chat.innerHTML=`
 
 <div class="chat-contenedor">
 
 <div class="avatar">
 
-<img src="${escena.imagen}" alt="imagen">
+${escena.emoji}
 
 </div>
 
@@ -603,15 +743,11 @@ chat.innerHTML=`
 
 `;
 
-// Esperar un momento antes de mostrar el mensaje
-setTimeout(()=>{
+    buttons.innerHTML="";
 
-try{
-sonido.currentTime=0;
-sonido.play();
-}catch(e){}
+    setTimeout(()=>{
 
-document.getElementById("mensaje").innerHTML=`
+        document.getElementById("mensaje").innerHTML=`
 
 <h2>${escena.titulo}</h2>
 
@@ -619,32 +755,29 @@ ${escena.texto}
 
 `;
 
-},800);
+    },800);
 
-// Crear botones
+    escena.botones.forEach(boton=>{
 
-buttons.innerHTML="";
+        const btn=document.createElement("button");
 
-escena.botones.forEach(b=>{
+        btn.className="boton";
 
-const boton=document.createElement("button");
+        btn.textContent=boton.texto;
 
-boton.className="boton";
+        btn.onclick=()=>{
 
-boton.textContent=b.texto;
+            sonido.currentTime=0;
+            sonido.play().catch(()=>{});
 
-boton.onclick=()=>{
+            mostrarEscena(boton.siguiente);
 
-mostrarEscena(b.siguiente);
+        };
 
-};
+        buttons.appendChild(btn);
 
-buttons.appendChild(boton);
-
-});
+    });
 
 }
-
-// Iniciar aplicación
 
 mostrarEscena(0);
