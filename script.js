@@ -1,39 +1,47 @@
-// ==============================
+// ======================================
 // ¿PENSÁS COMO SÓCRATES?
+// Proyecto Filosofía
 // Basado en "Recuerdos de Sócrates"
 // de Jenofonte
-// ==============================
+// ======================================
+
+// ---------- CONFIGURACIÓN ----------
 
 const chat = document.getElementById("chat");
 const buttons = document.getElementById("buttons");
 const progressBar = document.getElementById("progress-bar");
 
-// Todas las pantallas de la aplicación
+// Si no tenés pop.mp3, simplemente comentá esta línea
+const sonido = new Audio("pop.mp3");
+
+// ---------- ESCENAS ----------
+
 const escenas = [
 
 {
 titulo:"🏛 Bienvenido",
 
 texto:`
-<h2>¿Pensás como Sócrates?</h2>
 
 <p>
 
-Hace más de <b>2400 años</b>, un filósofo llamado
-<b>Sócrates</b> enseñaba de una manera muy diferente.
+¡Hola!
 
-No daba respuestas.
+Soy <b>Sócrates</b>.
 
-Hacía preguntas.
+Hoy quiero conversar con vos de la misma forma en la que conversaba con mis discípulos hace más de 2400 años.
 
-En esta experiencia recorrerás uno de los diálogos
-escritos por <b>Jenofonte</b>.
+No voy a decirte qué pensar.
 
-Vos decidirás qué responder.
+Voy a hacerte preguntas.
+
+Y juntos descubriremos por qué uno de mis discípulos, <b>Jenofonte</b>, decidió escribir este diálogo.
 
 </p>
 
 `,
+
+imagen:"img/socrates.png",
 
 botones:[
 {
@@ -45,40 +53,32 @@ siguiente:1
 },
 
 {
+
 titulo:"👤 ¿Quién fue Sócrates?",
 
 texto:`
 
 <p>
 
-Sócrates fue uno de los filósofos más importantes
-de la Antigua Grecia.
+Sócrates fue un filósofo nacido en Atenas.
 
-Vivió en Atenas entre los siglos V y IV a.C.
+A diferencia de muchos pensadores, nunca escribió libros.
 
-Nunca escribió libros.
+Prefería recorrer las calles conversando con las personas.
 
-Todo lo que conocemos sobre él fue escrito por
-sus discípulos, principalmente
-<b>Platón</b> y <b>Jenofonte</b>.
+Creía que haciendo preguntas era posible descubrir la verdad mucho mejor que simplemente escuchando respuestas.
 
 </p>
 
 <p>
 
-Su forma de enseñar era especial.
-
-No decía "esta es la respuesta correcta".
-
-Prefería hacer preguntas para que las personas
-llegaran solas a una conclusión.
-
-A esta forma de enseñar hoy la conocemos como
-<b>método socrático</b>.
+Por esa razón, hoy se lo considera uno de los padres de la filosofía occidental.
 
 </p>
 
 `,
+
+imagen:"img/socrates.png",
 
 botones:[
 {
@@ -90,31 +90,34 @@ siguiente:2
 },
 
 {
+
 titulo:"📖 ¿Quién fue Jenofonte?",
 
 texto:`
 
 <p>
 
-Jenofonte fue militar, historiador y discípulo
-de Sócrates.
+Jenofonte fue uno de los discípulos de Sócrates.
+
+Además de filósofo, fue militar e historiador.
 
 Escribió un libro llamado
-<b>Recuerdos de Sócrates</b>.
 
-En él reunió distintos diálogos para mostrar cómo
-pensaba y enseñaba su maestro.
+<b>Recuerdos de Sócrates</b>
 
-El diálogo que vas a recorrer pertenece justamente
-a esa obra.
+para mostrar cómo enseñaba realmente su maestro.
+
+Gracias a ese libro hoy conocemos muchos de sus diálogos.
 
 </p>
 
 `,
 
+imagen:"img/jenofonte.png",
+
 botones:[
 {
-texto:"Continuar",
+texto:"Seguir",
 siguiente:3
 }
 ]
@@ -122,31 +125,34 @@ siguiente:3
 },
 
 {
+
 titulo:"🤔 Aristodemo",
 
 texto:`
 
 <p>
 
-En este diálogo aparece un hombre llamado
+Uno de los personajes del diálogo es
+
 <b>Aristodemo</b>.
 
-Él dudaba de la existencia de los dioses.
+Él no creía que existieran los dioses.
 
-En lugar de discutir con él,
-Sócrates decidió hacerle preguntas.
+En lugar de discutir o enojarse...
 
-No quería obligarlo a creer.
+Sócrates comenzó a hacerle preguntas.
 
-Quería que reflexionara.
+Porque pensaba que una persona aprende más cuando llega sola a una conclusión.
 
 </p>
 
 `,
 
+imagen:"img/aristodemo.png",
+
 botones:[
 {
-texto:"Seguir",
+texto:"Continuar",
 siguiente:4
 }
 ]
@@ -154,39 +160,52 @@ siguiente:4
 },
 
 {
-titulo:"⌚ Primer desafío",
+
+titulo:"⌚ El ejemplo del reloj",
 
 texto:`
 
-<h3>Imaginá esta situación.</h3>
-
 <p>
 
-Vas caminando por la calle.
+Imaginá que caminás por la calle.
 
-De repente encontrás un reloj.
+Encontrás un reloj.
 
 Tiene agujas.
 
+Tiene números.
+
 Tiene engranajes.
 
-Todas sus piezas funcionan juntas.
-
-¿Qué pensarías?
+Todo funciona perfectamente.
 
 </p>
 
+<p>
+
+Entonces Sócrates pregunta:
+
+</p>
+
+<h3>
+
+¿Creerías que apareció por casualidad?
+
+</h3>
+
 `,
+
+imagen:"img/reloj.png",
 
 botones:[
 
 {
-texto:"Se hizo solo",
+texto:"Sí",
 siguiente:5
 },
 
 {
-texto:"Alguien lo fabricó",
+texto:"No",
 siguiente:5
 }
 
@@ -195,103 +214,39 @@ siguiente:5
 },
 
 {
-titulo:"⌚ La respuesta de Sócrates",
+titulo:"⌚ La respuesta",
 
 texto:`
 
 <p>
 
-La mayoría de las personas respondería que
-<b>alguien fabricó el reloj</b>.
+La mayoría respondería que no.
 
-¿Por qué?
+Pensaría que alguien lo construyó.
 
-Porque todas sus piezas trabajan juntas con un propósito.
+Entonces Sócrates hace una comparación.
 
-Nadie suele pensar que apareció por casualidad.
+Si creemos que un objeto tan pequeño necesita un creador...
 
-Entonces Sócrates hace una nueva pregunta...
+¿qué ocurre con algo muchísimo más complejo?
 
 </p>
 
 `,
 
+imagen:"img/reloj.png",
+
 botones:[
 {
-texto:"Continuar",
+texto:"Descubrir",
 siguiente:6
 }
 ]
 
 },
-
 {
+
 titulo:"👁 El ojo humano",
-
-texto:`
-
-<h3>Ahora observemos algo mucho más complejo.</h3>
-
-<p>
-
-El ojo humano posee:
-
-</p>
-
-<ul>
-
-<li>👁 Retina</li>
-
-<li>💧 Lágrimas que lo protegen</li>
-
-<li>👁 Párpados</li>
-
-<li>🔍 Cristalino</li>
-
-<li>⚡ Nervio óptico</li>
-
-</ul>
-
-<p>
-
-Todas estas partes cumplen una función.
-
-Eso lleva a Sócrates a preguntar:
-
-</p>
-
-<p>
-
-<b>
-
-¿Si un reloj parece tener un diseñador...
-
-qué ocurre con el ojo humano?
-
-</b>
-
-</p>
-
-`,
-
-botones:[
-
-{
-texto:"Casualidad",
-siguiente:7
-},
-
-{
-texto:"Parece diseñado",
-siguiente:7
-}
-
-]
-
-},
-
-{
-titulo:"🧠 La inteligencia",
 
 texto:`
 
@@ -299,21 +254,19 @@ texto:`
 
 Sócrates continúa con otro ejemplo.
 
-</p>
-
-<p>
-
-¿Podés ver tu inteligencia?
+Observa el cuerpo humano y se detiene especialmente en el ojo.
 
 </p>
 
 <p>
 
-No.
+El ojo posee párpados que lo protegen.
 
-Sin embargo sabemos que existe por las decisiones
-que tomamos, por lo que aprendemos y por nuestra
-capacidad para razonar.
+Tiene pestañas que ayudan a impedir la entrada de polvo.
+
+Produce lágrimas que mantienen limpia su superficie.
+
+Además, todas sus partes trabajan juntas para permitirnos ver.
 
 </p>
 
@@ -321,176 +274,270 @@ capacidad para razonar.
 
 Entonces pregunta:
 
-<b>
-
-¿Por qué exigir ver a los dioses para creer en ellos?
-
-</b>
-
 </p>
+
+<h3>
+
+Si un reloj parece haber sido diseñado...
+
+¿qué pensarías de un órgano mucho más complejo como el ojo?
+
+</h3>
 
 `,
 
+imagen:"img/ojo.png",
+
 botones:[
+
 {
 texto:"Continuar",
-siguiente:8
+siguiente:7
 }
+
 ]
 
 },
 
 {
+
+titulo:"🧠 La inteligencia",
+
+texto:`
+
+<p>
+
+Sócrates cambia de ejemplo.
+
+Pregunta si alguna vez vimos nuestra propia inteligencia.
+
+</p>
+
+<p>
+
+La respuesta es no.
+
+No podemos verla como vemos una piedra o una mesa.
+
+Sin embargo, sabemos que existe por las decisiones que tomamos, por el aprendizaje y por nuestra capacidad de razonar.
+
+</p>
+
+<p>
+
+Con esto intenta mostrar que no todo lo real puede verse directamente.
+
+</p>
+
+`,
+
+imagen:"img/cerebro.png",
+
+botones:[
+
+{
+texto:"Seguir",
+siguiente:8
+}
+
+]
+
+},
+
+{
+
 titulo:"🌍 El orden del universo",
 
 texto:`
 
 <p>
 
-Sócrates también observa la naturaleza.
+Luego Sócrates invita a observar el mundo.
 
 </p>
 
 <ul>
 
-<li>☀️ El Sol permite la vida.</li>
+<li>☀️ El Sol proporciona luz y calor.</li>
 
-<li>🌧 La lluvia alimenta los cultivos.</li>
+<li>🌧 La lluvia permite que crezcan las plantas.</li>
 
-<li>🌱 Las plantas crecen.</li>
+<li>🌱 La naturaleza sigue ciclos.</li>
 
-<li>🧍 El cuerpo humano funciona de manera organizada.</li>
+<li>🌎 Los seres vivos parecen adaptados a su entorno.</li>
 
 </ul>
 
 <p>
 
-Para él, todo esto parecía mostrar un orden.
+Para Sócrates, todo esto muestra un cierto orden.
 
-Y donde hay orden...
-
-él pensaba que podía existir una inteligencia.
+Ese orden lo lleva a pensar que existe una inteligencia detrás del universo.
 
 </p>
 
 `,
 
+imagen:"img/universo.jpg",
+
 botones:[
+
 {
-texto:"Seguir",
+texto:"Continuar",
 siguiente:9
 }
+
 ]
 
 },
 
 {
-titulo:"💡 ¿Sabías que...? ",
+
+titulo:"💡 ¿Sabías que...?",
 
 texto:`
 
 <p>
 
-El argumento utilizado por Sócrates en este diálogo
-es conocido actualmente como
+Este razonamiento hoy recibe el nombre de
 
 <b>Argumento del Diseño</b>
+
 o
+
 <b>Argumento Teleológico</b>.
 
 </p>
 
 <p>
 
-Hoy sigue siendo debatido.
+No todos los filósofos están de acuerdo con él.
 
-Hay filósofos que lo defienden y otros que creen
-que la naturaleza puede explicarse de otra manera.
+Algunos creen que la naturaleza puede explicarse mediante procesos naturales sin necesidad de un diseñador.
 
-Por eso continúa siendo un tema muy interesante.
+Por eso sigue siendo un tema de debate incluso en la actualidad.
 
 </p>
 
 `,
 
+imagen:"img/libro.png",
+
 botones:[
+
 {
-texto:"Última parte",
+texto:"Seguir",
 siguiente:10
 }
+
 ]
 
 },
 
 {
+
+titulo:"📚 ¿Qué buscaba realmente Sócrates?",
+
+texto:`
+
+<p>
+
+Lo más importante del diálogo no es demostrar quién tiene razón.
+
+Lo importante es la forma en que Sócrates enseña.
+
+</p>
+
+<p>
+
+En vez de imponer sus ideas, hace preguntas.
+
+Escucha.
+
+Invita a pensar.
+
+Eso es precisamente el método socrático.
+
+</p>
+
+<p>
+
+Su intención era que cada persona llegara a sus propias conclusiones mediante la reflexión.
+
+</p>
+
+`,
+
+imagen:"img/socrates.png",
+
+botones:[
+
+{
+texto:"Ir al final",
+siguiente:11
+}
+
+]
+
+},
+
+{
+
 titulo:"🏛 Reflexión final",
 
 texto:`
 
-<h2>¿Te convenció Sócrates?</h2>
-
 <p>
 
-Ahora ya conocés el razonamiento que Sócrates
-presenta en <b>Recuerdos de Sócrates</b>,
-escrito por Jenofonte.
+Llegamos al final del diálogo.
 
-Su objetivo no era demostrar científicamente
-la existencia de los dioses.
+¿Notaste algo?
 
-Tampoco quería obligar a Aristodemo a creer.
+En ningún momento Sócrates obligó a Aristodemo a creer.
 
-Lo que buscaba era que pensara por sí mismo.
+Simplemente fue haciendo preguntas.
+
+Ese es el verdadero valor del método socrático.
 
 </p>
 
 <p>
 
-Ese sigue siendo uno de los objetivos más
-importantes de la filosofía:
+La filosofía no consiste únicamente en responder.
 
-<b>aprender a cuestionar, reflexionar y argumentar.</b>
+También consiste en aprender a preguntar.
 
 </p>
 
 `,
 
+imagen:"img/socrates.png",
+
 botones:[
 
 {
-texto:"👍 Me hizo pensar",
-siguiente:11
-},
-
-{
-texto:"🤔 Todavía tengo dudas",
-siguiente:11
-},
-
-{
-texto:"👎 No me convenció",
-siguiente:11
+texto:"Responder un desafío",
+siguiente:12
 }
 
 ]
 
 },
 
+
 {
+
 titulo:"🎉 ¡Terminaste!",
 
 texto:`
 
-<h2>Gracias por participar</h2>
+<h2>¡Felicitaciones!</h2>
 
 <p>
 
-Acabás de recorrer uno de los diálogos más famosos
-de Jenofonte.
+Acabás de recorrer uno de los diálogos más conocidos de Jenofonte.
 
-Esperamos que esta experiencia haya despertado tu
-interés por la filosofía y por la manera en que
-Sócrates enseñaba.
+Esperamos que esta experiencia te haya ayudado a comprender mejor cómo enseñaba Sócrates y por qué sigue siendo uno de los filósofos más importantes de la historia.
 
 </p>
 
@@ -498,8 +545,7 @@ Sócrates enseñaba.
 
 <b>
 
-"La filosofía no consiste en memorizar respuestas,
-sino en aprender a hacer mejores preguntas."
+"La filosofía comienza cuando nos atrevemos a preguntar."
 
 </b>
 
@@ -507,10 +553,12 @@ sino en aprender a hacer mejores preguntas."
 
 `,
 
+imagen:"img/socrates.png",
+
 botones:[
 
 {
-texto:"🔄 Volver a empezar",
+texto:"🔄 Reiniciar",
 siguiente:0
 }
 
@@ -520,51 +568,83 @@ siguiente:0
 
 ];
 
-//------------------------------------------------
+// =========================
 // FUNCIONES
-//------------------------------------------------
+// =========================
 
-function mostrarEscena(indice) {
+function mostrarEscena(indice){
 
-    const escena = escenas[indice];
+const escena = escenas[indice];
 
-    // Barra de progreso
-    const porcentaje = ((indice + 1) / escenas.length) * 100;
-    progressBar.style.width = porcentaje + "%";
+// Barra de progreso
+progressBar.style.width=((indice+1)/escenas.length*100)+"%";
 
-    // Título de la pestaña
-    document.title = escena.titulo;
+// Cambiar título de la pestaña
+document.title=escena.titulo;
 
-    // Mostrar contenido
-    chat.innerHTML = `
-        <div class="mensaje">
-            <h2>${escena.titulo}</h2>
-            ${escena.texto}
-        </div>
-    `;
+// Mostrar animación de escritura
+chat.innerHTML=`
 
-    // Crear botones
-    buttons.innerHTML = "";
+<div class="chat-contenedor">
 
-    escena.botones.forEach(boton => {
+<div class="avatar">
 
-        const btn = document.createElement("button");
+<img src="${escena.imagen}" alt="imagen">
 
-        btn.className = "boton";
+</div>
 
-        btn.textContent = boton.texto;
+<div class="mensaje" id="mensaje">
 
-        btn.onclick = () => {
+<h3>⌛ Sócrates está escribiendo...</h3>
 
-            mostrarEscena(boton.siguiente);
+</div>
 
-        };
+</div>
 
-        buttons.appendChild(btn);
+`;
 
-    });
+// Esperar un momento antes de mostrar el mensaje
+setTimeout(()=>{
+
+try{
+sonido.currentTime=0;
+sonido.play();
+}catch(e){}
+
+document.getElementById("mensaje").innerHTML=`
+
+<h2>${escena.titulo}</h2>
+
+${escena.texto}
+
+`;
+
+},800);
+
+// Crear botones
+
+buttons.innerHTML="";
+
+escena.botones.forEach(b=>{
+
+const boton=document.createElement("button");
+
+boton.className="boton";
+
+boton.textContent=b.texto;
+
+boton.onclick=()=>{
+
+mostrarEscena(b.siguiente);
+
+};
+
+buttons.appendChild(boton);
+
+});
 
 }
 
 // Iniciar aplicación
+
 mostrarEscena(0);
