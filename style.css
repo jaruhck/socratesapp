@@ -74,15 +74,17 @@ body{
 
 .app{
 
-    width:420px;
+    width:min(420px,100%);
 
-    height:760px;
+    max-height:95vh;
+
+    height:auto;
 
     background:white;
 
     border-radius:25px;
 
-    overflow:hidden;
+    overflow:auto;
 
     display:flex;
 
@@ -168,9 +170,11 @@ header p{
 
     overflow-y:auto;
 
-    padding:22px;
+    padding:18px;
 
     background:#f5f7fb;
+
+    min-height:0;
 
 }
 
@@ -271,6 +275,7 @@ header p{
 ========================== */
 
 #buttons{
+    flex-shrink:0;
 
     background:white;
 
@@ -396,37 +401,17 @@ footer{
 
     width:100%;
 
-    height:100vh;
+    max-height:100dvh;
+
+    height:auto;
 
     border-radius:0;
 
 }
 
-header h1{
+body{
 
-    font-size:21px;
-
-}
-
-.logo{
-
-    font-size:34px;
-
-}
-
-.avatar{
-
-    width:60px;
-
-    height:60px;
-
-    font-size:36px;
-
-}
-
-footer{
-
-    display:none;
+    overflow:auto;
 
 }
 
